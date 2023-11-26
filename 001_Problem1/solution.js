@@ -6,17 +6,24 @@ function sleep(ms) {
 
 function blockingSleep(ms) {
     let timeNow = new Date().getTime(); // t= 0 1/1/1970 -> now , x + 10000
+    
+    // while(new Date().getTime() < timeNow + ms) {
+    //     // wait
+    // }
+
     while(true) {
         const y = new Date().getTime() 
-        console.log(y, timeNow, timeNow + ms);
-        if(y > timeNow + ms) break;
+        // console.log(y, timeNow, timeNow + ms);
+        if(y > timeNow + ms) 
+            break;
     }
 
 }
 
 async function process() {
     console.log('Hello!');
-    blockingSleep(10000)
+    // await sleep(2000);
+    blockingSleep(10000);
     console.log('Bye.');
 }
 
